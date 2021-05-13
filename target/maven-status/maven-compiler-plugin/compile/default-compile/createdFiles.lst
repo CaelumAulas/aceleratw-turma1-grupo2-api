@@ -1,0 +1,10 @@
+com/tw/acelera/carangobom/modelo/Usuario.class
+com/tw/acelera/carangobom/controller/MarcaController.class
+com/tw/acelera/carangobom/repository/MarcaRepository.class
+com/tw/acelera/carangobom/controller/form/MarcaForm.class
+com/tw/acelera/carangobom/CarangobomApplication.class
+com/tw/acelera/carangobom/controller/dto/MarcaDto.class
+com/tw/acelera/carangobom/repository/VeiculoRepository.class
+com/tw/acelera/carangobom/modelo/Veiculo.class
+com/tw/acelera/carangobom/controller/form/AtualizacaoMarcaForm.class
+com/tw/acelera/carangobom/modelo/Marca.class

@@ -6,6 +6,12 @@ import com.tw.acelera.carangobom.modelo.Marca;
 
 public class MarcaDto {
 	private Long id;
+	private String descricao;
+	
+	public MarcaDto(Marca marca) {
+		this.id = marca.getId();
+		this.descricao = marca.getDescricao();
+	}
 
 	public Long getId() {
 		return id;
@@ -21,13 +27,6 @@ public class MarcaDto {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}
-
-	private String descricao;
-	
-	public MarcaDto(Marca marca) {
-		this.id = marca.getId();
-		this.descricao = marca.getDescricao();
 	}
 	
 	public static List<MarcaDto> converter(List<Marca> marcas) {
