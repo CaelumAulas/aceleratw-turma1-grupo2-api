@@ -1,0 +1,10 @@
+/Users/izalena.barbosa/Documents/aceleratw-turma1-grupo2-api/src/main/java/com/tw/acelera/carangobom/modelo/Veiculo.java
+/Users/izalena.barbosa/Documents/aceleratw-turma1-grupo2-api/src/main/java/com/tw/acelera/carangobom/controller/form/AtualizacaoMarcaForm.java
+/Users/izalena.barbosa/Documents/aceleratw-turma1-grupo2-api/src/main/java/com/tw/acelera/carangobom/modelo/Usuario.java
+/Users/izalena.barbosa/Documents/aceleratw-turma1-grupo2-api/src/main/java/com/tw/acelera/carangobom/modelo/Marca.java
+/Users/izalena.barbosa/Documents/aceleratw-turma1-grupo2-api/src/main/java/com/tw/acelera/carangobom/controller/dto/MarcaDto.java
+/Users/izalena.barbosa/Documents/aceleratw-turma1-grupo2-api/src/main/java/com/tw/acelera/carangobom/controller/MarcaController.java
+/Users/izalena.barbosa/Documents/aceleratw-turma1-grupo2-api/src/main/java/com/tw/acelera/carangobom/controller/form/MarcaForm.java
+/Users/izalena.barbosa/Documents/aceleratw-turma1-grupo2-api/src/main/java/com/tw/acelera/carangobom/repository/MarcaRepository.java
+/Users/izalena.barbosa/Documents/aceleratw-turma1-grupo2-api/src/main/java/com/tw/acelera/carangobom/repository/VeiculoRepository.java
+/Users/izalena.barbosa/Documents/aceleratw-turma1-grupo2-api/src/main/java/com/tw/acelera/carangobom/CarangobomApplication.java
