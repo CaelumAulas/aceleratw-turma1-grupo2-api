@@ -27,6 +27,7 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
+	@GetMapping
 	@RequestMapping("/listar")
 	public List<UsuarioDto> lista() {
 		List<Usuario> usuarios = usuarioRepository.findAll();
