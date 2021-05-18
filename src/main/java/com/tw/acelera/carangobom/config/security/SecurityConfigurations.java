@@ -48,11 +48,11 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers(HttpMethod.GET, "/usuarios/**").permitAll()
-		.antMatchers(HttpMethod.GET, "/usuarios/*").permitAll()
+//		.antMatchers(HttpMethod.GET, "/usuarios/**").permitAll()
+//		.antMatchers(HttpMethod.GET, "/usuarios/listar*").permitAll()
 		.antMatchers(HttpMethod.POST, "/auth").permitAll()
 		.antMatchers(HttpMethod.GET, "/actuator/**").permitAll()
-		.antMatchers(HttpMethod.DELETE, "/topicos/*").hasRole("MODERADOR")
+		.antMatchers(HttpMethod.DELETE, "/usuarios/*").hasRole("MODERADOR")
 		.anyRequest().authenticated()
 		.and().csrf().disable()
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
