@@ -22,6 +22,15 @@ public class Veiculo {
 	private String modelo;
 	
 	private int ano;
+	
+	public Veiculo() {};
+
+	public Veiculo(Marca marca, BigDecimal valor, String modelo, int ano) {
+		this.marca = marca;
+		this.valor = valor;
+		this.modelo = modelo;
+		this.ano = ano;
+	}
 
 	@Override
 	public int hashCode() {
