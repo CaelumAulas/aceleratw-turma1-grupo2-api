@@ -18,7 +18,7 @@ public class Veiculo {
 	@ManyToOne
 	private Marca marca;
 
-	private Optional<Marca> optionalMarca;
+	//private Optional<Marca> optionalMarca;
 
 	private BigDecimal valor;
 	
@@ -35,12 +35,12 @@ public class Veiculo {
 		this.ano = ano;
 	}
 
-	public Veiculo(Optional<Marca> tipoMarca, BigDecimal valor, String modelo, int ano) {
+	/*public Veiculo(Marca tipoMarca, BigDecimal valor, String modelo, int ano) {
 		this.optionalMarca = tipoMarca;
 		this.valor = valor;
 		this.modelo = modelo;
 		this.ano = ano;
-	}
+	}*/
 
 	@Override
 	public int hashCode() {

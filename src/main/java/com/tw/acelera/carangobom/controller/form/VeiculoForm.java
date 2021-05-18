@@ -6,14 +6,13 @@ import com.tw.acelera.carangobom.repository.MarcaRepository;
 import com.tw.acelera.carangobom.repository.VeiculoRepository;
 
 import java.math.BigDecimal;
-import java.util.Optional;
 
 public class VeiculoForm {
 	private String modelo;
 	private int ano;
 	private BigDecimal valor;
 	private String marca;
-	private Long idMarca;
+//	private Long idMarca;
 //	private Marca marca;
 
 	public String getModelo() {
@@ -48,26 +47,11 @@ public class VeiculoForm {
 		this.marca = marca;
 	}
 
-	public Long getIdMarca() {
-		return idMarca;
-	}
-
-	public void setIdMarca(Long idMarca) {
-		this.idMarca = idMarca;
-	}
-
-	//	public String getMarca() {
-//		return marca;
-//	}
-//
-//	public void setMarca(String marca) {
-//		this.marca = marca;
-//	}
-
 	public Veiculo converter(MarcaRepository marcaRepository) {
-		Optional<Marca> tipoMarca = marcaRepository.findById(idMarca);
-		return new Veiculo(tipoMarca, valor, modelo, ano);
+		Marca mar = marcaRepository.findByDescricao(marca);
+		return new Veiculo(mar, valor, modelo, ano);
 	}
+	
 	
 	public Veiculo atualizar(Long id, VeiculoRepository veiculoRepository) {
 		Veiculo veiculo = veiculoRepository.getOne(id);

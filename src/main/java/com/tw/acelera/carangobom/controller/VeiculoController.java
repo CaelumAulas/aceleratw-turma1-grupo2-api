@@ -5,10 +5,13 @@ import com.tw.acelera.carangobom.controller.form.VeiculoForm;
 import com.tw.acelera.carangobom.modelo.Veiculo;
 import com.tw.acelera.carangobom.repository.MarcaRepository;
 import com.tw.acelera.carangobom.repository.VeiculoRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,9 +35,17 @@ public class VeiculoController {
 	private MarcaRepository marcaRepository;
 	
 	@RequestMapping("/listar")
-	public Page<VeiculoDto> lista(@PageableDefault(sort = "dataCriacao", direction = Sort.Direction.DESC, page = 0, size = 10) Pageable paginacao) {
-		Page<Veiculo> veiculos = veiculoRepository.findAll(paginacao);
-		return VeiculoDto.converter(veiculos);
+	public Page<VeiculoDto> lista(@RequestParam(required = false) String marcaVeic,
+			@PageableDefault(sort = "modelo", direction = Sort.Direction.DESC, page = 0, size = 10) Pageable paginacao) {
+		
+		if (marcaVeic == null) {
+			Page<Veiculo> veiculos = veiculoRepository.findAll(paginacao);
+		
+			return VeiculoDto.converter(veiculos);
+		} else {
+			Page<Veiculo> veiculos = veiculoRepository.findByMarcaDescricao(marcaVeic, paginacao);
+			return VeiculoDto.converter(veiculos);
+		}
 	}
 	
 	@PostMapping("/incluir")
@@ -43,7 +54,7 @@ public class VeiculoController {
 												UriComponentsBuilder uriBuilder) {
 		Veiculo veiculos = form.converter(marcaRepository);
 		veiculoRepository.save(veiculos);
-		
+		System.out.println("vei "+ veiculos.getMarca()+" "+veiculos.getAno());
 		URI uri = uriBuilder.path("/veiculo/{id}").buildAndExpand(veiculos.getId()).toUri();
 		return ResponseEntity.created(uri).body(new VeiculoDto(veiculos));
 	}
