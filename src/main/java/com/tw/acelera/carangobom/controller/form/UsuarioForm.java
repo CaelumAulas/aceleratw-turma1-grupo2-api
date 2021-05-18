@@ -8,6 +8,8 @@ import com.tw.acelera.carangobom.repository.UsuarioRepository;
 
 import javax.validation.constraints.NotEmpty;
 
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+
 public class UsuarioForm {
 	
 	@NotNull @NotEmpty
