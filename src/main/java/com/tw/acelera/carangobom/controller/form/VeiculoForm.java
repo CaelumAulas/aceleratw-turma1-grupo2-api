@@ -12,7 +12,6 @@ import javax.validation.constraints.NotEmpty;
 public class VeiculoForm {
 	
 	@NotNull @NotEmpty
-	
 	private BigDecimal valor;
 	
 	private String modelo;
