@@ -53,17 +53,17 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 	//Configuracoes de autorizacao
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.cors().configurationSource(request -> { 
-			  CorsConfiguration corsConfiguration = new CorsConfiguration();
-			  corsConfiguration.setAllowedOrigins(List.of("*"));
-			  corsConfiguration.setAllowedMethods(List.of("*"));
-			  corsConfiguration.setAllowedHeaders(List.of("*"));
-		      return corsConfiguration;
-		});
+//		http.cors().configurationSource(request -> {
+//			  CorsConfiguration corsConfiguration = new CorsConfiguration();
+//			  corsConfiguration.setAllowedOrigins(List.of("*"));
+//			  corsConfiguration.setAllowedMethods(List.of("*"));
+//			  corsConfiguration.setAllowedHeaders(List.of("*"));
+//		      return corsConfiguration;
+//		});
 		
-		http.authorizeRequests()
-//		.antMatchers(HttpMethod.GET, "/usuarios/**").permitAll()
-//		.antMatchers(HttpMethod.GET, "/usuarios/listar*").permitAll()
+		http
+		.cors().and().csrf().disable()
+		.authorizeRequests()
 		.antMatchers(HttpMethod.POST, "/auth").permitAll()
 		.antMatchers(HttpMethod.GET, "/actuator/**").permitAll()
 		.antMatchers(HttpMethod.DELETE, "/usuarios/*").hasRole("MODERADOR")

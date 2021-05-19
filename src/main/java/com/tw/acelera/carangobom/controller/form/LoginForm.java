@@ -8,6 +8,13 @@ public class LoginForm {
 	private String email;
 	private String senha;
 
+	public LoginForm(String email, String senha) {
+		this.email = email;
+		this.senha = senha;
+	}
+
+	public LoginForm() {}
+
 	public String getEmail() {
 		return email;
 	}
