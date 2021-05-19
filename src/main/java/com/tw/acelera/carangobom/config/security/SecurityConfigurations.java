@@ -53,13 +53,13 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 	//Configuracoes de autorizacao
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-//		http.cors().configurationSource(request -> {
-//			  CorsConfiguration corsConfiguration = new CorsConfiguration();
-//			  corsConfiguration.setAllowedOrigins(List.of("*"));
-//			  corsConfiguration.setAllowedMethods(List.of("*"));
-//			  corsConfiguration.setAllowedHeaders(List.of("*"));
-//		      return corsConfiguration;
-//		});
+	http.cors().configurationSource(request -> {
+		  CorsConfiguration corsConfiguration = new CorsConfiguration();
+		  corsConfiguration.setAllowedOrigins(List.of("*"));
+		  corsConfiguration.setAllowedMethods(List.of("*"));
+			  corsConfiguration.setAllowedHeaders(List.of("*"));
+		      return corsConfiguration;
+		});
 		
 		http
 		.cors().and().csrf().disable()
