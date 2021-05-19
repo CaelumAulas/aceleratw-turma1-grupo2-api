@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 
 import javax.persistence.Entity;
 
@@ -16,7 +17,9 @@ public class Veiculo {
 
 	@ManyToOne
 	private Marca marca;
-	
+
+	//private Optional<Marca> optionalMarca;
+
 	private BigDecimal valor;
 	
 	private String modelo;
@@ -31,6 +34,13 @@ public class Veiculo {
 		this.modelo = modelo;
 		this.ano = ano;
 	}
+
+	/*public Veiculo(Marca tipoMarca, BigDecimal valor, String modelo, int ano) {
+		this.optionalMarca = tipoMarca;
+		this.valor = valor;
+		this.modelo = modelo;
+		this.ano = ano;
+	}*/
 
 	@Override
 	public int hashCode() {

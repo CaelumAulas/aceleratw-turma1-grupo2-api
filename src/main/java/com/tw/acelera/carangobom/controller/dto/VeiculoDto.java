@@ -1,12 +1,16 @@
 package com.tw.acelera.carangobom.controller.dto;
 import com.tw.acelera.carangobom.modelo.Marca;
 import com.tw.acelera.carangobom.modelo.Veiculo;
+import com.tw.acelera.carangobom.repository.MarcaRepository;
+import org.springframework.data.domain.Page;
 
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class VeiculoDto {
+	private Long marcaId;
+
 	private Long id;
 	
 	private Marca marca;
@@ -14,8 +18,20 @@ public class VeiculoDto {
 	private BigDecimal valor;
 	
 	private String modelo;
-	
+
 	private int ano;
+
+//	private Long id;
+//	private String titulo;
+//	private String mensagem;
+//	private LocalDateTime dataCriacao;
+//
+//	public TopicoDto(Topico topico) {
+//		this.id = topico.getId();
+//		this.titulo = topico.getTitulo();
+//		this.mensagem = topico.getMensagem();
+//		this.dataCriacao = topico.getDataCriacao();
+//	}
 
 	public VeiculoDto(Veiculo veiculo) {
 		this.id = veiculo.getId();
@@ -74,7 +90,6 @@ public class VeiculoDto {
 	}
 
 
-
 	public Long getId() {
 		return id;
 	}
@@ -84,8 +99,7 @@ public class VeiculoDto {
 	}
 
 	
-	public static List<VeiculoDto> converter(List<Veiculo> usuarios) {
-		return usuarios.stream().map(VeiculoDto::new).collect(Collectors.toList());
+	public static Page<VeiculoDto> converter(Page<Veiculo> veiculos) {
+		return veiculos.map(VeiculoDto::new);
 	}
-
 }

@@ -1,4 +1,10 @@
 -------------------------------------------------------------------------------
 Test set: com.tw.acelera.carangobom.CarangobomApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.556 s - in com.tw.acelera.carangobom.CarangobomApplicationTests
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 7.87 s <<< FAILURE! - in com.tw.acelera.carangobom.CarangobomApplicationTests
+contextLoads  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: java.util.Optional, at table: veiculo, for columns: [org.hibernate.mapping.Column(optional_marca)]
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.MappingException: Could not determine type for: java.util.Optional, at table: veiculo, for columns: [org.hibernate.mapping.Column(optional_marca)]
+Caused by: org.hibernate.MappingException: Could not determine type for: java.util.Optional, at table: veiculo, for columns: [org.hibernate.mapping.Column(optional_marca)]
+

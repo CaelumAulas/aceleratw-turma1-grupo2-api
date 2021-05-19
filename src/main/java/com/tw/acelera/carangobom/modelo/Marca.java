@@ -7,17 +7,16 @@ import javax.persistence.Id;
 
 @Entity
 public class Marca {
-	
-	public Marca() {}
-	
-	public Marca(String descricao) {
-		this.descricao = descricao;
-	}
-
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	private String descricao;
+
+	public Marca() {}
+
+	public Marca(String descricao) {
+		this.descricao = descricao;
+	}
 
 	public Long getId() {
 		return id;

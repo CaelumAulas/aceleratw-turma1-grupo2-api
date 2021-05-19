@@ -1,5 +1,7 @@
 package com.tw.acelera.carangobom.config.security;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +16,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfiguration;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.tw.acelera.carangobom.repository.UsuarioRepository;
 
@@ -47,9 +53,17 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 	//Configuracoes de autorizacao
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
-//		.antMatchers(HttpMethod.GET, "/usuarios/**").permitAll()
-//		.antMatchers(HttpMethod.GET, "/usuarios/listar*").permitAll()
+	http.cors().configurationSource(request -> {
+		  CorsConfiguration corsConfiguration = new CorsConfiguration();
+		  corsConfiguration.setAllowedOrigins(List.of("*"));
+		  corsConfiguration.setAllowedMethods(List.of("*"));
+			  corsConfiguration.setAllowedHeaders(List.of("*"));
+		      return corsConfiguration;
+		});
+		
+		http
+		.cors().and().csrf().disable()
+		.authorizeRequests()
 		.antMatchers(HttpMethod.POST, "/auth").permitAll()
 		.antMatchers(HttpMethod.GET, "/actuator/**").permitAll()
 		.antMatchers(HttpMethod.DELETE, "/usuarios/*").hasRole("MODERADOR")
