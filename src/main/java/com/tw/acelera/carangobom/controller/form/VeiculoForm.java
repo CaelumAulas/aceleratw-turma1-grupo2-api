@@ -1,6 +1,8 @@
 package com.tw.acelera.carangobom.controller.form;
 
 import com.tw.acelera.carangobom.modelo.Marca;
+
+import com.sun.istack.NotNull;
 import com.tw.acelera.carangobom.modelo.Veiculo;
 import com.tw.acelera.carangobom.repository.MarcaRepository;
 import com.tw.acelera.carangobom.repository.VeiculoRepository;
@@ -11,9 +13,8 @@ public class VeiculoForm {
 	private String modelo;
 	private int ano;
 	private BigDecimal valor;
+	//@notNull 
 	private String marca;
-//	private Long idMarca;
-//	private Marca marca;
 
 	public String getModelo() {
 		return modelo;
@@ -56,7 +57,6 @@ public class VeiculoForm {
 	public Veiculo atualizar(Long id, VeiculoRepository veiculoRepository) {
 		Veiculo veiculo = veiculoRepository.getOne(id);
 
-//		veiculo.setMarca(this.marca);
 		veiculo.setValor(this.valor);
 		veiculo.setModelo(this.modelo);
 		veiculo.setAno(this.ano);
