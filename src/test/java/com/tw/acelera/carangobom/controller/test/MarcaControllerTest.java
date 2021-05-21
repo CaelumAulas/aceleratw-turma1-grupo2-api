@@ -1,17 +1,13 @@
 package com.tw.acelera.carangobom.controller.test;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.math.BigDecimal;
-
-import org.junit.Test;
+import com.tw.acelera.carangobom.modelo.Marca;
+import com.tw.acelera.carangobom.repository.MarcaRepository;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
-import com.tw.acelera.carangobom.modelo.Marca;
-import com.tw.acelera.carangobom.repository.MarcaRepository;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MarcaControllerTest {
 
