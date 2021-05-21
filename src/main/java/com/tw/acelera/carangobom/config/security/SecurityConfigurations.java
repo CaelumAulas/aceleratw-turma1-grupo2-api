@@ -61,16 +61,20 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 		      return corsConfiguration;
 		});
 		
-		http
-		.cors().and().csrf().disable()
-		.authorizeRequests()
-		.antMatchers(HttpMethod.POST, "/auth").permitAll()
-		.antMatchers(HttpMethod.GET, "/actuator/**").permitAll()
-		.antMatchers(HttpMethod.DELETE, "/usuarios/*").hasRole("MODERADOR")
-		.anyRequest().authenticated()
-		.and().csrf().disable()
-		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-		.and().addFilterBefore(new AutenticacaoViaTokenFilter(tokenService, usuarioRepository), UsernamePasswordAuthenticationFilter.class);
+	http
+	.cors().and().csrf().disable()
+	.authorizeRequests()
+	.antMatchers(HttpMethod.POST, "*").permitAll()
+	.antMatchers(HttpMethod.GET, "*").permitAll()
+	.antMatchers(HttpMethod.DELETE, "*").permitAll()
+	.antMatchers(HttpMethod.DELETE, "*").hasRole("MODERADOR")
+	.antMatchers(HttpMethod.POST, "/auth").permitAll()
+	.antMatchers(HttpMethod.GET, "/actuator/**").permitAll()
+	.antMatchers(HttpMethod.DELETE, "/usuarios/*").hasRole("MODERADOR")
+	.anyRequest().authenticated()
+	.and().csrf().disable()
+	.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+	.and().addFilterBefore(new AutenticacaoViaTokenFilter(tokenService, usuarioRepository), UsernamePasswordAuthenticationFilter.class);
 	}
 	
 	
