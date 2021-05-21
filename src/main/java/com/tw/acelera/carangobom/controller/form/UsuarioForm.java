@@ -1,14 +1,10 @@
 package com.tw.acelera.carangobom.controller.form;
 
 import com.sun.istack.NotNull;
-import com.tw.acelera.carangobom.modelo.Marca;
 import com.tw.acelera.carangobom.modelo.Usuario;
-import com.tw.acelera.carangobom.repository.MarcaRepository;
 import com.tw.acelera.carangobom.repository.UsuarioRepository;
 
 import javax.validation.constraints.NotEmpty;
-
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 public class UsuarioForm {
 	
